@@ -1,0 +1,357 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7f5;
+    color: #26352e;
+    min-height: 100vh;
+}
+
+.math-tutor {
+    width: 900px;
+    max-width: 92%;
+    margin: 55px auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.header h1 {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.header p {
+    font-size: 16px;
+    color: #718078;
+}
+
+.question-box {
+    position: relative;
+    background: white;
+    border: 1px solid #dce5e0;
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+#questionInput {
+    display: block;
+    width: 100%;
+    height: 150px;
+    border: none;
+    outline: none;
+    resize: none;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    color: #26352e;
+}
+
+#questionInput::placeholder {
+    color: #9aa59f;
+}
+
+.question-tools {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 18px;
+}
+
+.left-tools,
+.right-tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tool-button,
+.calculator-button,
+.symbols-button,
+.send-button {
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tool-button,
+.calculator-button {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #edf3ef;
+    font-size: 21px;
+}
+
+.tool-button:hover,
+.calculator-button:hover,
+.symbols-button:hover {
+    background: #dfe9e3;
+}
+
+.symbols-button {
+    height: 44px;
+    padding: 0 14px;
+    border-radius: 12px;
+    background: #edf3ef;
+    font-size: 15px;
+}
+
+.send-button {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #557d69;
+    color: white;
+    font-size: 20px;
+}
+
+.send-button:hover {
+    background: #456b59;
+}
+
+.upload-container,
+.calculator-container,
+.symbols-container {
+    position: relative;
+}
+
+
+/* Upload menu */
+
+.upload-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 55px;
+    width: 210px;
+    padding: 10px;
+    z-index: 100;
+    background: white;
+    border: 1px solid #dce5e0;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.13);
+}
+
+.upload-menu button {
+    width: 100%;
+    padding: 11px;
+    margin-bottom: 6px;
+    border: none;
+    border-radius: 9px;
+    background: #f3f7f4;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.upload-menu button:hover {
+    background: #e5eee9;
+}
+
+
+/* Symbols menu */
+
+.symbols-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 55px;
+    width: 350px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 15px;
+    z-index: 100;
+    background: white;
+    border: 1px solid #dce5e0;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.13);
+}
+
+.symbol-category {
+    margin-bottom: 16px;
+}
+
+.symbol-category strong {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    color: #3b5147;
+}
+
+.symbol-button {
+    border: 1px solid #dce5e0;
+    background: #f8faf9;
+    border-radius: 7px;
+    padding: 7px 10px;
+    margin: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.symbol-button:hover {
+    background: #e5eee9;
+}
+
+
+/* Calculator */
+
+.calculator {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 52px;
+    width: 320px;
+    max-height: 520px;
+    overflow-y: auto;
+    padding: 14px;
+    z-index: 200;
+    background: white;
+    border: 1px solid #cfdcd5;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+}
+
+.calculator-title {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #3b5147;
+}
+
+.calculator-display {
+    width: 100%;
+    min-height: 55px;
+    margin-bottom: 12px;
+    padding: 12px;
+    background: #f1f5f3;
+    border: 1px solid #dce5e0;
+    border-radius: 10px;
+    text-align: right;
+    font-size: 22px;
+    overflow-x: auto;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
+}
+
+.calc-button {
+    min-height: 42px;
+    border: none;
+    border-radius: 8px;
+    background: #f1f5f3;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.calc-button:hover {
+    background: #e1eae5;
+}
+
+.calc-button.operator {
+    background: #dfeae4;
+}
+
+.calc-button.function {
+    background: #e9efec;
+}
+
+.calc-button.scientific {
+    font-size: 13px;
+}
+
+.calc-button.equals {
+    background: #557d69;
+    color: white;
+}
+
+.calc-button.equals:hover {
+    background: #456b59;
+}
+
+/* Tutor Response */
+
+#tutor-response-text {
+    white-space: pre-line;
+}
+
+/* Learning section */
+
+.learning-section {
+    margin-top: 45px;
+}
+
+.learning-section h2 {
+    text-align: center;
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+.learning-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.learning-button {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #dce5e0;
+    border-radius: 12px;
+    background: white;
+    text-align: left;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.learning-button:hover {
+    background: #f0f5f2;
+}
+
+.practice-button {
+    grid-column: 1 / 3;
+    width: 50%;
+    justify-self: center;
+}
+
+
+/* Smaller screens */
+
+@media (max-width: 700px) {
+
+    .math-tutor {
+        width: 94%;
+        margin: 30px auto;
+    }
+
+    .calculator {
+        width: 300px;
+        max-width: calc(100vw - 40px);
+        max-height: 450px;
+    }
+
+    .symbols-menu {
+        width: 280px;
+        max-width: calc(100vw - 40px);
+    }
+
+    .learning-options {
+        grid-template-columns: 1fr;
+    }
+
+    .practice-button {
+        grid-column: auto;
+        width: 100%;
+    }
+}
