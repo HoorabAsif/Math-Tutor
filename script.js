@@ -519,7 +519,7 @@ sendButton.addEventListener("click", async function () {
 
       formData.append("image", window.selectedMathFile);
 
-      const response = await fetch("http://localhost:3000/ask", {
+      const response = await fetch("https://math-tutor-production-3a05.up.railway.app/ask", {
         method: "POST",
         body: formData,
       });
@@ -1126,7 +1126,7 @@ conceptButton.addEventListener("click", async function () {
 
     console.log("SENDING CONCEPT REQUEST");
 
-    const response = await fetch("http://localhost:3000/ask", {
+    const response = await fetch("https://math-tutor-production-3a05.up.railway.app/ask", {
       method: "POST",
 
       headers: {
@@ -1185,7 +1185,7 @@ hintButton.addEventListener("click", async function () {
   try {
     showAILoading("Tutor is preparing a helpful hint");
 
-    const response = await fetch("http://localhost:3000/ask", {
+    const response = await fetch("https://math-tutor-production-3a05.up.railway.app/ask", {
       method: "POST",
 
       headers: {
@@ -1242,7 +1242,7 @@ checkAnswerButton.addEventListener("click", async function () {
   try {
     showAILoading("Tutor is checking your answer");
 
-    const response = await fetch("http://localhost:3000/ask", {
+    const response = await fetch("https://math-tutor-production-3a05.up.railway.app/ask", {
       method: "POST",
 
       headers: {
@@ -1307,7 +1307,7 @@ fullSolutionButton.addEventListener("click", async function () {
   try {
     showAILoading("Tutor is preparing the full solution");
 
-    const response = await fetch("http://localhost:3000/ask", {
+    const response = await fetch("https://math-tutor-production-3a05.up.railway.app/ask", {
       method: "POST",
 
       headers: {
@@ -1364,7 +1364,7 @@ practiceButton.addEventListener("click", async function () {
   try {
     showAILoading("Tutor is creating practice questions");
 
-    const response = await fetch("http://localhost:3000/ask", {
+    const response = await fetch("https://math-tutor-production-3a05.up.railway.app/ask", {
       method: "POST",
 
       headers: {
