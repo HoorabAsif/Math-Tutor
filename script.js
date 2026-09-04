@@ -1118,8 +1118,7 @@ conceptButton.addEventListener("click", async function () {
   const tutorResponseText = document.getElementById("tutor-response-text");
 
   tutorResponse.style.display = "block";
-
-  tutorResponseText.textContent = "Explaining the concept...";
+  tutorResponseText.textContent = "";
 
   try {
     showAILoading("Tutor is analyzing your question");
@@ -1179,8 +1178,7 @@ hintButton.addEventListener("click", async function () {
   const tutorResponseText = document.getElementById("tutor-response-text");
 
   tutorResponse.style.display = "block";
-
-  tutorResponseText.textContent = "Thinking of a helpful hint...";
+  tutorResponseText.textContent = "";
 
   try {
     showAILoading("Tutor is preparing a helpful hint");
@@ -1236,8 +1234,7 @@ checkAnswerButton.addEventListener("click", async function () {
   const tutorResponseText = document.getElementById("tutor-response-text");
 
   tutorResponse.style.display = "block";
-
-  tutorResponseText.textContent = "Checking your answer...";
+  tutorResponseText.textContent = "";
 
   try {
     showAILoading("Tutor is checking your answer");
@@ -1301,9 +1298,7 @@ fullSolutionButton.addEventListener("click", async function () {
   const tutorResponseText = document.getElementById("tutor-response-text");
 
   tutorResponse.style.display = "block";
-
-  tutorResponseText.textContent = "Preparing the full solution...";
-
+  tutorResponseText.textContent = "";
   try {
     showAILoading("Tutor is preparing the full solution");
 
@@ -1358,9 +1353,7 @@ practiceButton.addEventListener("click", async function () {
   const tutorResponseText = document.getElementById("tutor-response-text");
 
   tutorResponse.style.display = "block";
-
-  tutorResponseText.textContent = "Creating practice questions...";
-
+  tutorResponseText.textContent = "";
   try {
     showAILoading("Tutor is creating practice questions");
 
