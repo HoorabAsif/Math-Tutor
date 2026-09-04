@@ -1,394 +1,301 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Math Tutor</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-
+  <body>
     <div class="math-tutor">
-
-        <header class="header">
-            <h1>Math Tutor</h1>
-            <p>Your personal mathematics learning companion</p>
-        </header>
-
-
-        <main class="question-box">
-
-            <textarea
-                id="questionInput"
-                placeholder="What are you stuck on?"></textarea>
-
-
-            <div class="question-tools">
-
-                <div class="left-tools">
-
-                    <!-- Upload button -->
-
-                    <div class="upload-container">
-
-                        <button
-                            type="button"
-                            class="tool-button"
-                            id="uploadButton">
-                            +
-                        </button>
-
-                        <div class="upload-menu" id="uploadMenu">
-
-                            <button type="button" id="cameraButton">
-                                📷 Camera
-                            </button>
-
-                            <button type="button" id="photoButton">
-                                🖼️ Photos
-                            </button>
-
-                            <button type="button" id="fileButton">
-                                📄 PDF / File
-                            </button>
-
-                        </div>
-
-                    </div>
-                     
-                    <!-- Calculator -->
-
-                    <div class="calculator-container">
-
-                        <button
-                            type="button"
-                            class="calculator-button"
-                            id="calculatorButton">
-                            🧮
-                        </button>
-
-
-                        <div class="calculator" id="calculator">
-
-                            <div class="calculator-title">
-                                Scientific Calculator
-                            </div>
-
-                            <div
-                                class="calculator-display"
-                                id="calculatorDisplay">
-                                0
-                            </div>
-
-
-                            <div class="calculator-grid">
-
-                                <button class="calc-button function" data-value="AC">
-                                    AC
-                                </button>
-
-                                <button class="calc-button function" data-value="DEL">
-                                    DEL
-                                </button>
-
-                                <button class="calc-button function" data-value="%">
-                                    %
-                                </button>
-
-                                <button class="calc-button operator" data-value="/">
-                                    ÷
-                                </button>
-
-
-                                <button class="calc-button" data-value="7">
-                                    7
-                                </button>
-
-                                <button class="calc-button" data-value="8">
-                                    8
-                                </button>
-
-                                <button class="calc-button" data-value="9">
-                                    9
-                                </button>
-
-                                <button class="calc-button operator" data-value="*">
-                                    ×
-                                </button>
-
-
-                                <button class="calc-button" data-value="4">
-                                    4
-                                </button>
-
-                                <button class="calc-button" data-value="5">
-                                    5
-                                </button>
-
-                                <button class="calc-button" data-value="6">
-                                    6
-                                </button>
-
-                                <button class="calc-button operator" data-value="-">
-                                    −
-                                </button>
-
-
-                                <button class="calc-button" data-value="1">
-                                    1
-                                </button>
-
-                                <button class="calc-button" data-value="2">
-                                    2
-                                </button>
-
-                                <button class="calc-button" data-value="3">
-                                    3
-                                </button>
-
-                                <button class="calc-button operator" data-value="+">
-                                    +
-                                </button>
-
-
-                                <button class="calc-button" data-value="0">
-                                    0
-                                </button>
-
-                                <button class="calc-button" data-value=".">
-                                    .
-                                </button>
-
-                                <button class="calc-button function" data-value="(">
-                                    (
-                                </button>
-
-                                <button class="calc-button function" data-value=")">
-                                    )
-                                </button>
-
-
-                                <button class="calc-button scientific" data-value="sqrt">
-                                    √
-                                </button>
-
-                                <button class="calc-button scientific" data-value="square">
-                                    x²
-                                </button>
-
-                                <button class="calc-button scientific" data-value="power">
-                                    xʸ
-                                </button>
-
-                                <button class="calc-button scientific" data-value="pi">
-                                    π
-                                </button>
-
-
-                                <button class="calc-button scientific" data-value="sin">
-                                    sin
-                                </button>
-
-                                <button class="calc-button scientific" data-value="cos">
-                                    cos
-                                </button>
-
-                                <button class="calc-button scientific" data-value="tan">
-                                    tan
-                                </button>
-
-                                <button class="calc-button scientific" data-value="log">
-                                    log
-                                </button>
-
-
-                                <button class="calc-button scientific" data-value="ln">
-                                    ln
-                                </button>
-
-                                <button class="calc-button scientific" data-value="exp">
-                                    eˣ
-                                </button>
-
-                                <button class="calc-button scientific" data-value="abs">
-                                    |x|
-                                </button>
-
-                                <button class="calc-button equals" data-value="=">
-                                    =
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- Symbols -->
-
-                    <div class="symbols-container">
-
-                        <button
-                            type="button"
-                            class="symbols-button"
-                            id="symbolsButton">
-                            ∑ Symbols
-                        </button>
-
-
-                        <div class="symbols-menu" id="symbolsMenu">
-
-                            <div class="symbol-category">
-
-                                <strong>Basic</strong>
-
-                                <button class="symbol-button">+</button>
-                                <button class="symbol-button">−</button>
-                                <button class="symbol-button">×</button>
-                                <button class="symbol-button">÷</button>
-                                <button class="symbol-button">=</button>
-                                <button class="symbol-button">≠</button>
-                                <button class="symbol-button">&lt;</button>
-                                <button class="symbol-button">&gt;</button>
-
-                            </div>
-
-
-                            <div class="symbol-category">
-
-                                <strong>Algebra</strong>
-
-                                <button class="symbol-button">x²</button>
-                                <button class="symbol-button">xⁿ</button>
-                                <button class="symbol-button">√x</button>
-                                <button class="symbol-button">∞</button>
-
-                            </div>
-
-
-                            <div class="symbol-category">
-
-                                <strong>Trigonometry</strong>
-
-                                <button class="symbol-button">sin</button>
-                                <button class="symbol-button">cos</button>
-                                <button class="symbol-button">tan</button>
-                                <button class="symbol-button">cot</button>
-                                <button class="symbol-button">sec</button>
-                                <button class="symbol-button">csc</button>
-
-                            </div>
-
-
-                            <div class="symbol-category">
-
-                                <strong>Calculus</strong>
-
-                                <button class="symbol-button">∫</button>
-                                <button class="symbol-button">∂</button>
-                                <button class="symbol-button">∑</button>
-                                <button class="symbol-button">Δ</button>
-                                <button class="symbol-button">lim</button>
-                                <button class="symbol-button">dy/dx</button>
-
-                            </div>
-
-
-                            <div class="symbol-category">
-
-                                <strong>Geometry</strong>
-
-                                <button class="symbol-button">°</button>
-                                <button class="symbol-button">∠</button>
-                                <button class="symbol-button">⊥</button>
-                                <button class="symbol-button">∥</button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Microphone and Send -->
-
-                <div class="right-tools">
-
-                    <button
-                        type="button"
-                        class="tool-button"
-                        id="microphoneButton">
-                        🎤
-                    </button>
-
-                    <button
-                        type="button"
-                        class="send-button"
-                        id="sendButton">
-                        ➤
-                    </button>
-
-                </div>
-
-            </div>
-
-        </main> 
-        
-        <div class="tutor-response" 
-        id="tutorResponse">
-            <h3>Tutor Response</h3>
-            <p id="tutor-response-text"></p>
+      <header class="header">
+        <h1>Math Tutor</h1>
+        <p>Your personal mathematics learning companion</p>
+      </header>
+
+      <main class="question-box">
+        <!-- Uploaded file chip -->
+        <div id="fileChip" class="file-chip" style="display: none">
+          <span id="fileChipName">📎 Mathematics file</span>
+          <button id="removeFileButton" type="button">×</button>
         </div>
 
+        <textarea
+          id="questionInput"
+          placeholder="What are you stuck on?"
+        ></textarea>
+        <div class="question-tools">
+          <div class="left-tools">
+            <!-- Upload button -->
 
-        <input
-            type="file"
-            id="fileInput"
-            hidden>
+            <div class="upload-container">
+              <button type="button" class="tool-button" id="uploadButton">
+                +
+              </button>
 
+              <div class="upload-menu" id="uploadMenu">
+                <button type="button" id="cameraButton">📷 Camera</button>
 
-        <!-- Learning options -->
+                <button type="button" id="photoButton">🖼️ Photos</button>
 
-        <section class="learning-section">
-
-            <h2>How can I help you?</h2>
-
-            <div class="learning-options">
-
-                <button class="learning-button">
-                    💡 Understand the Concept
-                </button>
-
-                <button class="learning-button">
-                    💬 Give Me a Hint
-                </button>
-
-                <button class="learning-button">
-                    ✓ Check My Answer
-                </button>
-
-                <button class="learning-button">
-                    📖 Show Full Solution
-                </button>
-
-                <button class="learning-button practice-button">
-                    📚 More Practice
-                </button>
-
+                <button type="button" id="fileButton">📄 PDF / File</button>
+              </div>
             </div>
 
-        </section>
+            <!-- Calculator -->
 
+            <div class="calculator-container">
+              <button
+                type="button"
+                class="calculator-button"
+                id="calculatorButton"
+              >
+                🧮
+              </button>
+
+              <div class="calculator" id="calculator">
+                <div class="calculator-title">Scientific Calculator</div>
+
+                <div class="calculator-display" id="calculatorDisplay">0</div>
+
+                <div class="calculator-grid">
+                  <button class="calc-button function" data-value="AC">
+                    AC
+                  </button>
+
+                  <button class="calc-button function" data-value="DEL">
+                    DEL
+                  </button>
+
+                  <button class="calc-button function" data-value="%">%</button>
+
+                  <button class="calc-button operator" data-value="/">÷</button>
+
+                  <button class="calc-button" data-value="7">7</button>
+
+                  <button class="calc-button" data-value="8">8</button>
+
+                  <button class="calc-button" data-value="9">9</button>
+
+                  <button class="calc-button operator" data-value="*">×</button>
+
+                  <button class="calc-button" data-value="4">4</button>
+
+                  <button class="calc-button" data-value="5">5</button>
+
+                  <button class="calc-button" data-value="6">6</button>
+
+                  <button class="calc-button operator" data-value="-">−</button>
+
+                  <button class="calc-button" data-value="1">1</button>
+
+                  <button class="calc-button" data-value="2">2</button>
+
+                  <button class="calc-button" data-value="3">3</button>
+
+                  <button class="calc-button operator" data-value="+">+</button>
+
+                  <button class="calc-button" data-value="0">0</button>
+
+                  <button class="calc-button" data-value=".">.</button>
+
+                  <button class="calc-button function" data-value="(">(</button>
+
+                  <button class="calc-button function" data-value=")">)</button>
+
+                  <button class="calc-button scientific" data-value="sqrt">
+                    √
+                  </button>
+
+                  <button class="calc-button scientific" data-value="square">
+                    x²
+                  </button>
+
+                  <button class="calc-button scientific" data-value="power">
+                    xʸ
+                  </button>
+
+                  <button class="calc-button scientific" data-value="pi">
+                    π
+                  </button>
+
+                  <button class="calc-button scientific" data-value="sin">
+                    sin
+                  </button>
+
+                  <button class="calc-button scientific" data-value="cos">
+                    cos
+                  </button>
+
+                  <button class="calc-button scientific" data-value="tan">
+                    tan
+                  </button>
+
+                  <button class="calc-button scientific" data-value="log">
+                    log
+                  </button>
+
+                  <button class="calc-button scientific" data-value="ln">
+                    ln
+                  </button>
+
+                  <button class="calc-button scientific" data-value="exp">
+                    eˣ
+                  </button>
+
+                  <button class="calc-button scientific" data-value="abs">
+                    |x|
+                  </button>
+
+                  <button class="calc-button equals" data-value="=">=</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Symbols -->
+
+            <div class="symbols-container">
+              <button type="button" class="symbols-button" id="symbolsButton">
+                ∑ Symbols
+              </button>
+
+              <div class="symbols-menu" id="symbolsMenu">
+                <div class="symbol-category">
+                  <strong>Basic</strong>
+
+                  <button class="symbol-button">+</button>
+                  <button class="symbol-button">−</button>
+                  <button class="symbol-button">×</button>
+                  <button class="symbol-button">÷</button>
+                  <button class="symbol-button">=</button>
+                  <button class="symbol-button">≠</button>
+                  <button class="symbol-button">&lt;</button>
+                  <button class="symbol-button">&gt;</button>
+                </div>
+
+                <div class="symbol-category">
+                  <strong>Algebra</strong>
+
+                  <button class="symbol-button">x²</button>
+                  <button class="symbol-button">xⁿ</button>
+                  <button class="symbol-button">√x</button>
+                  <button class="symbol-button">∞</button>
+                </div>
+
+                <div class="symbol-category">
+                  <strong>Trigonometry</strong>
+
+                  <button class="symbol-button">sin</button>
+                  <button class="symbol-button">cos</button>
+                  <button class="symbol-button">tan</button>
+                  <button class="symbol-button">cot</button>
+                  <button class="symbol-button">sec</button>
+                  <button class="symbol-button">csc</button>
+                </div>
+
+                <div class="symbol-category">
+                  <strong>Calculus</strong>
+
+                  <button class="symbol-button">∫</button>
+                  <button class="symbol-button">∂</button>
+                  <button class="symbol-button">∑</button>
+                  <button class="symbol-button">Δ</button>
+                  <button class="symbol-button">lim</button>
+                  <button class="symbol-button">dy/dx</button>
+                </div>
+
+                <div class="symbol-category">
+                  <strong>Geometry</strong>
+
+                  <button class="symbol-button">°</button>
+                  <button class="symbol-button">∠</button>
+                  <button class="symbol-button">⊥</button>
+                  <button class="symbol-button">∥</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Microphone and Send -->
+
+          <div class="right-tools">
+            <button type="button" class="tool-button" id="microphoneButton">
+              🎤
+            </button>
+
+            <button type="button" class="send-button" id="sendButton">➤</button>
+          </div>
+        </div>
+      </main>
+
+      <div class="tutor-response" id="tutorResponse">
+        <h3>Tutor Response</h3>
+
+        <!-- AI loading indicator -->
+        <div id="aiLoading" class="ai-loading" style="display: none">
+          <span id="aiLoadingText">Tutor is analyzing your question</span>
+          <span class="loading-dots">
+            <span>.</span>
+            <span>.</span>
+            <span>.</span>
+          </span>
+        </div>
+        <p id="tutor-response-text"></p>
+      </div>
+
+      <input type="file" id="fileInput" hidden />
+
+      <!-- Learning options -->
+
+      <section class="learning-section">
+        <h2>How can I help you?</h2>
+
+        <div class="learning-options">
+          <button class="learning-button" id="conceptButton">
+            💡 Understand the Concept
+          </button>
+
+          <button class="learning-button" id="hintButton">
+            💬 Give Me a Hint
+          </button>
+
+          <button class="learning-button" id="checkAnswerButton">
+            ✓ Check My Answer
+          </button>
+
+          <button class="learning-button" id="fullSolutionButton">
+            📖 Show Full Solution
+          </button>
+
+          <button class="learning-button practice-button" id="practiceButton">
+            📚 More Practice
+          </button>
+        </div>
+      </section>
     </div>
 
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"],
+          ],
+        },
+      };
+    </script>
+
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
 
     <script src="script.js"></script>
-
-</body>
-
+  </body>
 </html>

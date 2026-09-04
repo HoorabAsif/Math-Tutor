@@ -1,357 +1,698 @@
+/* =========================
+   GLOBAL
+   ========================= */
+
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f7f5;
-    color: #26352e;
-    min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #f5f8f6;
+  color: #26352e;
+  min-height: 100vh;
 }
 
 .math-tutor {
-    width: 900px;
-    max-width: 92%;
-    margin: 55px auto;
+  width: 920px;
+  max-width: 92%;
+  margin: 55px auto;
 }
 
+/* =========================
+   HEADER
+   ========================= */
+
 .header {
-    text-align: center;
-    margin-bottom: 32px;
+  text-align: center;
+  margin-bottom: 34px;
 }
 
 .header h1 {
-    font-size: 36px;
-    margin-bottom: 8px;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+  margin-bottom: 9px;
 }
 
 .header p {
-    font-size: 16px;
-    color: #718078;
+  font-size: 16px;
+  color: #718078;
 }
 
+/* =========================
+   QUESTION BOX
+   ========================= */
+
 .question-box {
-    position: relative;
-    background: white;
-    border: 1px solid #dce5e0;
-    border-radius: 18px;
-    padding: 22px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #dce5e0;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(38, 53, 46, 0.08);
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.question-box:focus-within {
+  border-color: #b8cfc2;
+  box-shadow: 0 12px 34px rgba(38, 53, 46, 0.11);
 }
 
 #questionInput {
-    display: block;
-    width: 100%;
-    height: 150px;
-    border: none;
-    outline: none;
-    resize: none;
-    font-family: Arial, sans-serif;
-    font-size: 17px;
-    color: #26352e;
+  display: block;
+  width: 100%;
+  height: 150px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #26352e;
+  background: transparent;
 }
 
 #questionInput::placeholder {
-    color: #9aa59f;
+  color: #9aa59f;
 }
 
+/* =========================
+   TOOL BAR
+   ========================= */
+
 .question-tools {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
 }
 
 .left-tools,
 .right-tools {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .tool-button,
 .calculator-button,
 .symbols-button,
 .send-button {
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
 }
 
 .tool-button,
 .calculator-button {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: #edf3ef;
-    font-size: 21px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #edf3ef;
+  font-size: 21px;
 }
 
 .tool-button:hover,
 .calculator-button:hover,
 .symbols-button:hover {
-    background: #dfe9e3;
+  background: #dfe9e3;
+  transform: translateY(-1px);
 }
 
 .symbols-button {
-    height: 44px;
-    padding: 0 14px;
-    border-radius: 12px;
-    background: #edf3ef;
-    font-size: 15px;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 12px;
+  background: #edf3ef;
+  font-size: 15px;
 }
 
 .send-button {
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    background: #557d69;
-    color: white;
-    font-size: 20px;
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  background: #557d69;
+  color: white;
+  font-size: 20px;
 }
 
 .send-button:hover {
-    background: #456b59;
+  background: #456b59;
+  transform: translateY(-1px);
 }
+
+/* =========================
+   CONTAINERS
+   ========================= */
 
 .upload-container,
 .calculator-container,
 .symbols-container {
-    position: relative;
+  position: relative;
 }
 
-
-/* Upload menu */
+/* =========================
+   UPLOAD MENU
+   ========================= */
 
 .upload-menu {
-    display: none;
-    position: absolute;
-    left: 0;
-    bottom: 55px;
-    width: 210px;
-    padding: 10px;
-    z-index: 100;
-    background: white;
-    border: 1px solid #dce5e0;
-    border-radius: 14px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.13);
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: 55px;
+  width: 215px;
+  padding: 10px;
+  z-index: 100;
+  background: white;
+  border: 1px solid #dce5e0;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(38, 53, 46, 0.14);
 }
 
 .upload-menu button {
-    width: 100%;
-    padding: 11px;
-    margin-bottom: 6px;
-    border: none;
-    border-radius: 9px;
-    background: #f3f7f4;
-    text-align: left;
-    cursor: pointer;
-    font-size: 14px;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 6px;
+  border: none;
+  border-radius: 9px;
+  background: #f3f7f4;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: #26352e;
+  transition: background 0.15s ease;
+}
+
+.upload-menu button:last-child {
+  margin-bottom: 0;
 }
 
 .upload-menu button:hover {
-    background: #e5eee9;
+  background: #e5eee9;
 }
 
-
-/* Symbols menu */
+/* =========================
+   SYMBOLS MENU
+   ========================= */
 
 .symbols-menu {
-    display: none;
-    position: absolute;
-    left: 0;
-    bottom: 55px;
-    width: 350px;
-    max-height: 300px;
-    overflow-y: auto;
-    padding: 15px;
-    z-index: 100;
-    background: white;
-    border: 1px solid #dce5e0;
-    border-radius: 14px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.13);
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: 55px;
+  width: 360px;
+  max-height: 310px;
+  overflow-y: auto;
+  padding: 16px;
+  z-index: 100;
+  background: white;
+  border: 1px solid #dce5e0;
+  border-radius: 15px;
+  box-shadow: 0 12px 30px rgba(38, 53, 46, 0.14);
 }
 
 .symbol-category {
-    margin-bottom: 16px;
+  margin-bottom: 17px;
+}
+
+.symbol-category:last-child {
+  margin-bottom: 0;
 }
 
 .symbol-category strong {
-    display: block;
-    margin-bottom: 7px;
-    font-size: 14px;
-    color: #3b5147;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #3b5147;
 }
 
 .symbol-button {
-    border: 1px solid #dce5e0;
-    background: #f8faf9;
-    border-radius: 7px;
-    padding: 7px 10px;
-    margin: 3px;
-    cursor: pointer;
-    font-size: 14px;
+  border: 1px solid #dce5e0;
+  background: #f8faf9;
+  border-radius: 8px;
+  padding: 7px 10px;
+  margin: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #26352e;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease;
 }
 
 .symbol-button:hover {
-    background: #e5eee9;
+  background: #e5eee9;
+  transform: translateY(-1px);
 }
 
-
-/* Calculator */
+/* =========================
+   CALCULATOR
+   ========================= */
 
 .calculator {
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 52px;
-    width: 320px;
-    max-height: 520px;
-    overflow-y: auto;
-    padding: 14px;
-    z-index: 200;
-    background: white;
-    border: 1px solid #cfdcd5;
-    border-radius: 16px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 52px;
+  width: 325px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding: 15px;
+  z-index: 200;
+  background: white;
+  border: 1px solid #cfdcd5;
+  border-radius: 16px;
+  box-shadow: 0 14px 34px rgba(38, 53, 46, 0.16);
 }
 
 .calculator-title {
-    margin-bottom: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #3b5147;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #3b5147;
 }
 
 .calculator-display {
-    width: 100%;
-    min-height: 55px;
-    margin-bottom: 12px;
-    padding: 12px;
-    background: #f1f5f3;
-    border: 1px solid #dce5e0;
-    border-radius: 10px;
-    text-align: right;
-    font-size: 22px;
-    overflow-x: auto;
+  width: 100%;
+  min-height: 55px;
+  margin-bottom: 12px;
+  padding: 12px;
+  background: #f1f5f3;
+  border: 1px solid #dce5e0;
+  border-radius: 10px;
+  text-align: right;
+  font-size: 22px;
+  overflow-x: auto;
 }
 
 .calculator-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 7px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
 }
 
 .calc-button {
-    min-height: 42px;
-    border: none;
-    border-radius: 8px;
-    background: #f1f5f3;
-    cursor: pointer;
-    font-size: 14px;
+  min-height: 43px;
+  border: none;
+  border-radius: 8px;
+  background: #f1f5f3;
+  cursor: pointer;
+  font-size: 14px;
+  color: #26352e;
+  transition:
+    background 0.15s ease,
+    transform 0.1s ease;
 }
 
 .calc-button:hover {
-    background: #e1eae5;
+  background: #e1eae5;
+}
+
+.calc-button:active {
+  transform: scale(0.97);
 }
 
 .calc-button.operator {
-    background: #dfeae4;
+  background: #dfeae4;
 }
 
 .calc-button.function {
-    background: #e9efec;
+  background: #e9efec;
 }
 
 .calc-button.scientific {
-    font-size: 13px;
+  font-size: 13px;
 }
 
 .calc-button.equals {
-    background: #557d69;
-    color: white;
+  background: #557d69;
+  color: white;
 }
 
 .calc-button.equals:hover {
-    background: #456b59;
+  background: #456b59;
 }
 
-/* Tutor Response */
+/* =========================
+   TUTOR RESPONSE
+   ========================= */
+
+.tutor-response {
+  margin-top: 28px;
+  padding: 22px 24px;
+  background: #ffffff;
+  border: 1px solid #dce5e0;
+  border-radius: 17px;
+  box-shadow: 0 8px 24px rgba(38, 53, 46, 0.07);
+}
+
+.tutor-response h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #3b5147;
+}
 
 #tutor-response-text {
-    white-space: pre-line;
+  white-space: pre-line;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #34443c;
 }
 
-/* Learning section */
+/* =========================
+   LEARNING SECTION
+   ========================= */
 
 .learning-section {
-    margin-top: 45px;
+  margin-top: 48px;
 }
 
 .learning-section h2 {
-    text-align: center;
-    font-size: 23px;
-    margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 21px;
 }
 
 .learning-options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
 }
 
 .learning-button {
-    width: 100%;
-    padding: 16px;
-    border: 1px solid #dce5e0;
-    border-radius: 12px;
-    background: white;
-    text-align: left;
-    font-size: 15px;
-    cursor: pointer;
+  width: 100%;
+  padding: 17px;
+  border: 1px solid #dce5e0;
+  border-radius: 13px;
+  background: white;
+  text-align: left;
+  font-size: 15px;
+  color: #26352e;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(38, 53, 46, 0.03);
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
 }
 
 .learning-button:hover {
-    background: #f0f5f2;
+  background: #f0f5f2;
+  border-color: #cbdad2;
+  transform: translateY(-2px);
+}
+
+.learning-button:active {
+  transform: translateY(0);
 }
 
 .practice-button {
-    grid-column: 1 / 3;
-    width: 50%;
-    justify-self: center;
+  grid-column: 1 / 3;
+  width: 50%;
+  justify-self: center;
 }
 
+/* =========================
+   SCROLLBARS
+   ========================= */
 
-/* Smaller screens */
+.symbols-menu::-webkit-scrollbar,
+.calculator::-webkit-scrollbar {
+  width: 7px;
+}
+
+.symbols-menu::-webkit-scrollbar-thumb,
+.calculator::-webkit-scrollbar-thumb {
+  background: #cbd8d1;
+  border-radius: 10px;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
 
 @media (max-width: 700px) {
+  .math-tutor {
+    width: 94%;
+    margin: 30px auto;
+  }
 
-    .math-tutor {
-        width: 94%;
-        margin: 30px auto;
-    }
+  .header {
+    margin-bottom: 25px;
+  }
 
-    .calculator {
-        width: 300px;
-        max-width: calc(100vw - 40px);
-        max-height: 450px;
-    }
+  .header h1 {
+    font-size: 32px;
+  }
 
-    .symbols-menu {
-        width: 280px;
-        max-width: calc(100vw - 40px);
-    }
+  .header p {
+    font-size: 14px;
+  }
 
-    .learning-options {
-        grid-template-columns: 1fr;
-    }
+  .question-box {
+    padding: 18px;
+    border-radius: 17px;
+  }
 
-    .practice-button {
-        grid-column: auto;
-        width: 100%;
-    }
+  #questionInput {
+    height: 135px;
+    font-size: 16px;
+  }
+
+  .question-tools {
+    align-items: flex-end;
+  }
+
+  .left-tools {
+    flex-wrap: wrap;
+  }
+
+  .symbols-button {
+    font-size: 14px;
+  }
+
+  .calculator {
+    width: 300px;
+    max-width: calc(100vw - 40px);
+    max-height: 450px;
+  }
+
+  .symbols-menu {
+    width: 280px;
+    max-width: calc(100vw - 40px);
+  }
+
+  .learning-section {
+    margin-top: 38px;
+  }
+
+  .learning-options {
+    grid-template-columns: 1fr;
+  }
+
+  .practice-button {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .tutor-response {
+    padding: 18px;
+  }
+}
+/* =========================
+   AI BUTTON DISABLED STATE
+   ========================= */
+
+.learning-button:disabled,
+.send-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.learning-button:disabled:hover,
+.send-button:disabled:hover {
+  background: white;
+  border-color: #dce5e0;
+  transform: none;
+}
+
+/* =========================
+   TUTOR LOADING
+   ========================= */
+
+.tutor-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.loading-dots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.loading-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #557d69;
+  animation: tutorDot 1.2s infinite ease-in-out;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes tutorDot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+/* =========================
+   FILE ATTACHMENT CHIP
+   ========================= */
+
+.file-attachment {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 8px 11px;
+  background: #f1f5f3;
+  border: 1px solid #dce5e0;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #3b5147;
+}
+
+.file-attachment-remove {
+  border: none;
+  background: transparent;
+  color: #718078;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 2px 4px;
+}
+
+.file-attachment-remove:hover {
+  color: #26352e;
+}
+/* =========================
+   FILE ATTACHMENT CHIP
+   ========================= */
+
+.file-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 12px;
+  padding: 8px 10px 8px 12px;
+  background: #f1f6f3;
+  border: 1px solid #d5e2da;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #3b5147;
+}
+
+#fileChipName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 260px;
+}
+
+#removeFileButton {
+  margin-left: 10px;
+  border: none;
+  background: transparent;
+  color: #718078;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 5px;
+  border-radius: 6px;
+}
+
+#removeFileButton:hover {
+  background: #dfe9e3;
+  color: #26352e;
+}
+
+/* =========================
+   AI LOADING
+   ========================= */
+
+.ai-loading {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  font-size: 14px;
+  color: #718078;
+}
+
+.loading-dots {
+  display: inline-flex;
+  margin-left: 3px;
+}
+
+.loading-dots span {
+  animation: loadingDot 1.4s infinite;
+  opacity: 0.25;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loadingDot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.25;
+  }
+
+  30% {
+    opacity: 1;
+  }
+}
+
+/* =========================
+   DISABLE BUTTONS WHILE AI WORKS
+   ========================= */
+
+.ai-busy {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
 }
