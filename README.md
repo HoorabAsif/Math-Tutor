@@ -1,18 +1,18 @@
-Math Tutor
+## Math Tutor
 
-An AI-powered mathematics learning companion
+## An AI-powered mathematics learning companion
 
 Math Tutor is an interactive mathematics learning application designed around a simple idea: students should be able to understand a problem, not just receive its answer.
 
 Instead of giving every question the same response, Math Tutor provides different learning paths. A student can ask for a concept explanation, receive a hint, check their own work, view a complete solution, or generate additional practice questions.
 
-Why I Built It
+## Why I Built It
 
 While learning mathematics, I noticed that getting an answer is often much easier than understanding why that answer is correct. I wanted to build a tool that would make the process more interactive and encourage students to work through problems themselves.
 
 I therefore designed Math Tutor around a progression from understanding → guidance → verification → solution → practice, rather than treating AI as an answer generator.
 
-What I Built
+## What I Built
 
 The application combines a browser-based interface with a Node.js backend and an AI-powered tutoring system.
 
@@ -29,7 +29,7 @@ Key features include:
 - Voice Input — allows questions to be entered through speech.
 - Streaming AI Responses — responses are displayed progressively rather than requiring the user to wait for the entire response before seeing anything.
 
-Technical Implementation
+## Technical Implementation
 
 Frontend
 
@@ -47,7 +47,7 @@ Backend
 
 I implemented the interface, frontend interactions, mathematical utilities, backend communication, response formatting, loading states, and error handling while repeatedly testing the system across different features.
 
-Development Process
+## Development Process
 
 Building Math Tutor was not a single-pass project. A major part of the development process was debugging and refining the interaction between the frontend and backend.
 
@@ -57,7 +57,7 @@ Rather than replacing the application whenever something failed, I repeatedly is
 
 This process taught me that building an application is not only about writing code—it is also about debugging systematically, understanding how different components interact, and making careful changes without breaking existing behavior.
 
-What I Learned
+## What I Learned
 
 Through this project, I developed practical experience with:
 
@@ -71,7 +71,7 @@ Through this project, I developed practical experience with:
 - Debugging complex frontend/backend interactions
 - Structuring a project for deployment and public use
 
-Future Development
+## Future Development
 
 Possible future directions include adaptive difficulty, student progress tracking, personalized practice, stronger mathematical reasoning tools, and additional curriculum-specific support.
 
