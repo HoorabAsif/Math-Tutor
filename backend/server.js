@@ -154,7 +154,13 @@ ${req.body.question || "Solve the mathematics questions in the attached file."}
     res.setHeader("Cache-Control", "no-cache");
     res.setHeader("Connection", "keep-alive");
 
-    const responseStream = await ai.models.generateContentStream({
+    let responseStream;
+
+for (let attempt = 1; attempt <= 3; attempt++) {
+  try {
+    console.log(`Gemini attempt ${attempt}/3`);
+
+    responseStream = await ai.models.generateContentStream({
       model: "gemini-3.6-flash",
       contents: contents,
       config: {
@@ -163,6 +169,27 @@ ${req.body.question || "Solve the mathematics questions in the attached file."}
         },
       },
     });
+
+    break;
+  } catch (error) {
+    console.error(`Gemini attempt ${attempt} failed:`, error);
+
+    const isTemporaryError =
+      error.status === 503 ||
+      error.status === 429 ||
+      error.status >= 500;
+
+    if (!isTemporaryError || attempt === 3) {
+      throw error;
+    }
+
+    const waitTime = attempt * 2000;
+
+    console.log(`Waiting ${waitTime}ms before retry...`);
+
+    await new Promise(resolve => setTimeout(resolve, waitTime));
+  }
+}
 
     for await (const chunk of responseStream) {
       if (chunk.text) {
