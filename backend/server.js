@@ -161,7 +161,7 @@ for (let attempt = 1; attempt <= 3; attempt++) {
     console.log(`Gemini attempt ${attempt}/3`);
 
     responseStream = await ai.models.generateContentStream({
-      model: "gemini-3.6-flash",
+      model: "gemini-3.5-flash-lite",
       contents: contents,
       config: {
         thinkingConfig: {
@@ -176,7 +176,6 @@ for (let attempt = 1; attempt <= 3; attempt++) {
 
     const isTemporaryError =
       error.status === 503 ||
-      error.status === 429 ||
       error.status >= 500;
 
     if (!isTemporaryError || attempt === 3) {
